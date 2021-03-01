@@ -7,10 +7,10 @@ using namespace std;
 
 class Population {
    public:
-   void cull();
-   void newGeneration();
-   int bestFitness();
+      void cull();
+      void newGeneration();
+      int bestFitness();
 
    private:
    
-}
+};

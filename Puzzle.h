@@ -7,11 +7,11 @@ class Puzzle {
    friend ostream &operator <<(ostream &out, const Puzzle &puzzle);
    friend istream &operator>>(istream &in, Puzzle &puzzle);
    public:
-   Puzzle();
-   ~Puzzle();
+      Puzzle();
+      ~Puzzle();
 
    private:
-   
 
 
-}
+
+};
