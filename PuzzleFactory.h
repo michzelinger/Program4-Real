@@ -7,6 +7,9 @@ using namespace std;
 
 class PuzzleFactory {
 public:
+  // Puzzle createPuzzle()
 
+private:
+   Reproduction reproduction_;
 
 };
