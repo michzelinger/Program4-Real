@@ -6,11 +6,19 @@
 using namespace std;
 
 class Population {
+  // Puzzle individual = pair<int, Puzzle>;
    public:
-      void cull();
+      Population();
+      ~Population();
+
+      void cull(double percent);
       void newGeneration();
       int bestFitness();
+      pair<int, Puzzle> bestIndividual();
 
    private:
-   
+      int size_;
+      vector<pair<int, Puzzle>> puzzles_;
+      Fitness fitness_;
+      PuzzleFactory factory_;
 };
