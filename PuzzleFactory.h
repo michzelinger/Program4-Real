@@ -10,7 +10,7 @@ class PuzzleFactory {
 public:
   // Puzzle createPuzzle()
   virtual shared_ptr<Puzzle> createPuzzle(shared_ptr<Puzzle> &puzzle);
-  PuzzleFactory();
+ // PuzzleFactory();
   virtual ~PuzzleFactory();
 
 protected:

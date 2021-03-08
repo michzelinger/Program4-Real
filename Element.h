@@ -7,7 +7,7 @@ class Element{
   public:
     Element();
     Element(int a);
-
+    ~Element();
     int getValue() const;
     bool getAvalability() const;
   

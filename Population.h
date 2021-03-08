@@ -1,24 +1,29 @@
 #pragma once
 #include <iostream>
+#include <memory>
 #include <vector>
 #include "Fitness.h"
 #include "PuzzleFactory.h"
+//#include "Separate.h"
 using namespace std;
 
+// struct Separate{
+  
+using Separate = pair<int, shared_ptr<Puzzle>>;
 class Population {
   // Puzzle individual = pair<int, Puzzle>;
    public:
       Population();
-      ~Population();
+      virtual ~Population();
 
-      void cull(double percent);
-      void newGeneration();
-      int bestFitness();
-      pair<int, Puzzle> bestIndividual();
+      virtual void cull(double percent) = 0;
+      virtual void newGeneration() = 0;
+      virtual int bestFitness() = 0;
+      virtual Separate bestIndividual() = 0;
 
-   private:
-      int size_;
-      vector<pair<int, Puzzle>> puzzles_;
-      Fitness fitness_;
-      PuzzleFactory factory_;
+   protected:
+      int populationSize_;
+      vector<Separate> puzzles_;
+      shared_ptr<Fitness> fitness_;
+      shared_ptr<PuzzleFactory> factory_;
 };

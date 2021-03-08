@@ -1,8 +1,11 @@
 #pragma once
-#include <iostream>
+
+#include "Puzzle.h"
+#include <memory>
 using namespace std;
 
-class Fitness{
-   public:
-   Fitness();
+class Fitness {
+public:
+    virtual ~Fitness() = default;
+    virtual int howFit(shared_ptr<Puzzle> &puzzle) = 0;
 };

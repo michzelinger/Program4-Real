@@ -30,3 +30,7 @@ bool::Element::getAvalability() const{
 void Element::setValue(int newValue){
   value = newValue;
 }
+
+Element::~Element(){
+  
+}
