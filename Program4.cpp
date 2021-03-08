@@ -4,8 +4,11 @@
 #include <memory>
 #include "Element.h"
 #include "Sudoku.h"
+
 #include "Fitness.h"
 #include "SudokuFitness.h"
+
+
 #include "SudokuOffspring.h"
 
 using namespace std;
@@ -63,9 +66,13 @@ int main(/*int argc, char * const argv[]*/)
    cin >> *p;
   //udoku >> initialSudokuPuzzle;
    cout << *p << endl;
+
    shared_ptr<Fitness> f = make_shared<SudokuFitness>();
    cout << f->howFit(p) << endl;
 
-   //s.readin();
+
+  
+
+
    return 0;
 }

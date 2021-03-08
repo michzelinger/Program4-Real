@@ -13,7 +13,7 @@ public:
   int getValue(int row, int column);
   bool getChangeAvailability(int row, int column);
   void setValue(int row, int column, int value);
-  //void setValue(int row, int column, int value, bool availability);
+
 
   istream &readin(istream &in) override;
   ostream &printout(ostream &out) const override;
