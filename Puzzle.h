@@ -8,10 +8,11 @@ class Puzzle {
    friend istream &operator>>(istream &in, Puzzle &puzzle);
    public:
       Puzzle();
-      ~Puzzle();
-
+      virtual ~Puzzle();
    private:
 
+    virtual istream &readin(istream &in) = 0;
+    virtual ostream &printout(ostream &out) const = 0;
 
 
 };

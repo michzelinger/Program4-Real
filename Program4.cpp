@@ -1,4 +1,10 @@
 #include <iostream>
+#include <vector>
+#include "Puzzle.h"
+#include<memory>
+#include "Element.h"
+#include "Sudoku.h"
+#include "SudokuOffspring.h"
 using namespace std;
 
 int main(/*int argc, char * const argv[]*/)
@@ -14,11 +20,38 @@ int main(/*int argc, char * const argv[]*/)
    int generations = 0;
    popultaion = atoi(argv[1]);
    generations = atoi(argv[2]);*/
+  //  cout << b.getValue() <<endl;
+  //  cout << b.getAvalability() << endl;
+
+  //  Sudoku sudoku;
+  //  vector<Element> vec;
+  //  vec.push_back(a);
+  //  vec.push_back(b);
+  //  vec[1].setValue(5);
+  //  for(int i =0; i<vec.size(); i++)
+  //  {
+  //    cout << vec[i].getValue() << endl;
+  //    cout << vec[i].getAvalability() << endl;
+  //  }
+
    
+  
+  //  Puzzle a;
    string initialSudokuPuzzle;
    cout << "Please Insert 81 characters for the initial puzzle. " << endl;
    cout << "Insert Here: ";
-   cin >> initialSudokuPuzzle;
-   cout << endl;
+   //cin >> initialSudokuPuzzle;
+   shared_ptr<Puzzle> p = make_shared<Sudoku>();
+  
+   //cout << initialSudokuPuzzle;
+   cin >> *p;
+  //udoku >> initialSudokuPuzzle;
+   cout << *p << endl;
+   SudokuOffspring off;
+   off.makeOffspring(p);
+   cout << p << endl;
+   
+
+   //s.readin();
    return 0;
 }
