@@ -6,7 +6,7 @@ class Element{
 
   public:
     Element();
-    Element(int a);
+    Element(int value, bool availability);
     ~Element();
     int getValue() const;
     bool getAvalability() const;
@@ -15,6 +15,6 @@ class Element{
     void setValue(int newValue);
   private:
 
-      int value = 0;
-      bool availability = true;
+      int value_ = 0;
+      bool availability_;
 };

@@ -7,10 +7,10 @@
 
   }
 
-void Sudoku::setValue(int r, int c, int val) {
+void Sudoku::setValue(int r, int c, int val, bool availability) {
     
-    if(getChangeAvailability(r, c) == true){
-      sudokuGrid_[(r-1)*9+c-1] = Element(val);
+    if(availability == true){
+      sudokuGrid_[(r-1)*9+c-1] = Element(val,availability);
     } 
     else {
       cerr << "Value cant be changed" << endl;
@@ -31,6 +31,7 @@ void Sudoku::setValue(int r, int c, int val) {
 // }
 istream &Sudoku::readin(istream &in) {
     // first clear grid
+    bool availability;
     sudokuGrid_.clear();
     char c;
     while (in >> c) {
@@ -38,7 +39,15 @@ istream &Sudoku::readin(istream &in) {
    
                 // only use in digit
         if (isdigit(c)) {
-          Element e(c-'0');
+          if(c-'0' > 0){
+            cout << "here" <<endl;
+            availability = false;
+          }
+          else{
+            cout << "here 2" << endl;
+            availability = true;
+          }
+          Element e(c-'0',availability);
           sudokuGrid_.push_back(e);
 
          // cout <<sudokuGrid_.size() <<endl;

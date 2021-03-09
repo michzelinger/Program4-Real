@@ -56,8 +56,8 @@ int main(/*int argc, char * const argv[]*/)
 
    
   //  Puzzle a;
-   int pop = 20;
-   int maxGen = 20;
+   int pop = 1;
+   int maxGen = 1;
    string initialSudokuPuzzle;
    cout << "Please Insert 81 characters for the initial puzzle. " << endl;
    cout << "Insert Here: ";
