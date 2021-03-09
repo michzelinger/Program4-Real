@@ -5,14 +5,12 @@
 int SudokuFitness::howFit(shared_ptr<Puzzle> &puzzle_){
    shared_ptr<Sudoku> sudokuPuzzle = dynamic_pointer_cast<Sudoku>(puzzle_);
     
-   cout << "Got here" << endl;
    int conflicts_ = 0;
    int valueToCheck = 0;
    set<int> valuesHolder;
    // void updateConflicts() 
 
   for(int row = 1;row<10; row++){
-    cout << "Got 2 here" << endl;
     valuesHolder.clear();
     for(int i=1;i<10;i++){
       
@@ -39,7 +37,6 @@ int SudokuFitness::howFit(shared_ptr<Puzzle> &puzzle_){
     valuesHolder.clear(); 
     for(int i = x; i < x+3; ++i){
       for(int j = y; j < y+3; ++j){
-        cout << "Got here 5" << endl;
         valuesHolder.insert(sudokuPuzzle->getValue(i+1,j+1));
       }
     }
