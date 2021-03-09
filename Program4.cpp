@@ -4,7 +4,7 @@
 #include <memory>
 #include "Element.h"
 #include "Sudoku.h"
-
+#include "GeneticAlgorithm.h"
 #include "Fitness.h"
 #include "SudokuFitness.h"
 
@@ -56,6 +56,8 @@ int main(/*int argc, char * const argv[]*/)
 
    
   //  Puzzle a;
+   int pop = 20;
+   int maxGen = 20;
    string initialSudokuPuzzle;
    cout << "Please Insert 81 characters for the initial puzzle. " << endl;
    cout << "Insert Here: ";
@@ -65,14 +67,16 @@ int main(/*int argc, char * const argv[]*/)
    //cout << initialSudokuPuzzle;
    cin >> *p;
   //udoku >> initialSudokuPuzzle;
+   cout << "Initial puzzle is: " << endl;
    cout << *p << endl;
 
-   shared_ptr<Fitness> f = make_shared<SudokuFitness>();
-   cout << f->howFit(p) << endl;
+  //  shared_ptr<Fitness> f = make_shared<SudokuFitness>();
+  //  cout << f->howFit(p) << endl;
+  GeneticAlgorithm ga(pop,maxGen,p);
 
-
-  
-
-
+  Separate best = ga.run();
+  cout << "Best fit puzzle is: " << endl;
+  cout << *best.second <<endl;
+  cout << "Best Fit of best puzzle is: " << best.first << endl;
    return 0;
 }
