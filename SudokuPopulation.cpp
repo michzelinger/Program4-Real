@@ -32,7 +32,15 @@ SudokuPopulation::~SudokuPopulation(){
   }
   
   void SudokuPopulation::newGeneration(){
-    
+    int remain = puzzles_.size();
+    int i =0;
+    while(puzzles_.size() < populationSize_){
+    shared_ptr<Puzzle> sudokuPuzzle = factory_->createPuzzle(puzzles_[i].second);
+      puzzles_.emplace_back(fitness_->howFit(sudokuPuzzle), sudokuPuzzle);
+      if(i+1 != remain){
+        i = i+1;
+      }
+    }
   }
   int SudokuPopulation::bestFitness(){
     Separate s = *min_element(puzzles_.begin(), puzzles_.end());
