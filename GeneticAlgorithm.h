@@ -40,34 +40,44 @@ class GeneticAlgorithm{
 };
 
 // genetic algorithm contructor
-GeneticAlgorithm::GeneticAlgorithm(int populationSize, int maxGeneration, shared_ptr<Puzzle> &initialPuzzle){
-  population_ = make_shared<SudokuPopulation>(populationSize, initialPuzzle);
-  maxGeneration_ =maxGeneration;
+GeneticAlgorithm::GeneticAlgorithm(int populationSize, int maxGeneration, shared_ptr<Puzzle> &initialPuzzle) {
+   population_ = make_shared<SudokuPopulation>(populationSize, initialPuzzle);
+   maxGeneration_ = maxGeneration;
 }
 
 /*
 * Description: Method that runs the genetic algorithm
 * Return: The puzzle with the lowest fitness score
 */
-Separate GeneticAlgorithm::run(){
-   Separate best{10000, nullptr};
-   // runs for the number of generations
-   for(int i = 0; i <maxGeneration_; i++){
-        Separate current = population_->bestIndividual();
-        //checks if fitness score is 0
-        if(current.first == 0){
-          best = current;
-          return best;
-        }
+Separate GeneticAlgorithm::run() {
+   Separate best{ 10000, nullptr };
+   for (int i = 0; i < maxGeneration_; i++) {
+      Separate current = population_->bestIndividual();
 
-        // checks for the best puzzle
-        if(current.first < best.first){
-          best = current;
-        }
-        //culls 90% from the population
-        population_->cull(0.9);
-        //creates the new generation of puzzles
-        population_->newGeneration();
+      if (current.first == 0) {
+         best = current;
+         return best;
+      }
+
+      if (current.first < best.first) {
+         best = current;
+      }
+
+      population_->cull(0.9);
+      population_->newGeneration();
+      if (i == maxGeneration_ - 1)
+      {
+         Separate current = population_->bestIndividual();
+
+         if (current.first == 0) {
+            best = current;
+            return best;
+         }
+
+         if (current.first < best.first) {
+            best = current;
+         }
+      }
    }
    return best;
 
