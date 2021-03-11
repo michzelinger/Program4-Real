@@ -1,15 +1,31 @@
+/*
+ * SudokuFitness.cpp file
+ * author: Michael Zelinger & Clyde Gjeci
+ * date: 3/10/2021
+ * 
+ * description:
+ * SudokuFitness class that implements the how fit method for the
+ * Sudoku puzzles.
+ * 
+*/
 #include "Sudoku.h"
 #include "SudokuFitness.h"
 #include <set>
 
+/*
+* Parameters: the puzzle we need to take the fitness number
+* Description: Calculates the puzzles fitness number
+* Return: The puzzle fitness number type int
+*/
 int SudokuFitness::howFit(shared_ptr<Puzzle> &puzzle_){
    shared_ptr<Sudoku> sudokuPuzzle = dynamic_pointer_cast<Sudoku>(puzzle_);
-    
-   int conflicts_ = 0;
-   int valueToCheck = 0;
-   set<int> valuesHolder;
-   // void updateConflicts() 
 
+  // holds all the conflicts  
+  int conflicts_ = 0;
+  int valueToCheck = 0;
+  set<int> valuesHolder;
+   
+  //checks rows for conflicts
   for(int row = 1;row<10; row++){
     valuesHolder.clear();
     for(int i=1;i<10;i++){
@@ -20,7 +36,7 @@ int SudokuFitness::howFit(shared_ptr<Puzzle> &puzzle_){
   }
   
 
-  
+  //checks columns for conflicts
   for(int column = 1;column<10; column++){
     valuesHolder.clear();
     for(int i=1;i<10;i++){
@@ -31,6 +47,7 @@ int SudokuFitness::howFit(shared_ptr<Puzzle> &puzzle_){
     conflicts_ += 9 - valuesHolder.size();
   }
   
+  //checks 3x3 blocks for conflicts
   for(int block = 0; block <9; ++block){
     int x = (block / 3) * 3;
     int y = (block % 3) * 3;
@@ -42,7 +59,8 @@ int SudokuFitness::howFit(shared_ptr<Puzzle> &puzzle_){
     }
     conflicts_ += 9 - valuesHolder.size();
   }
-   return conflicts_;
+  
+  return conflicts_;
 }
 
 

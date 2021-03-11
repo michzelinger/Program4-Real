@@ -1,12 +1,27 @@
+/*
+ * SudokuOffspring.cpp file
+ * author: Michael Zelinger & Clyde Gjeci
+ * date: 3/10/2021
+ * 
+ * description:
+ * SudokuOffspring class that implements the makeoffspring
+ * method.
+ * 
+*/
 #include "SudokuOffspring.h"
 
-SudokuOffspring::SudokuOffspring(){
-  
+//default constructor
+SudokuOffspring::SudokuOffspring(){ 
+}
+//default destructor
+SudokuOffspring::~SudokuOffspring(){
 }
 
-SudokuOffspring::~SudokuOffspring(){
-  
-}
+/*
+* Parameters: the sudoku puzzle we need to reproduce
+* Description: makes a new sudoku puzzle based on randomness
+* Return: The new sudoku puzzle
+*/
 shared_ptr<Puzzle> SudokuOffspring::makeOffspring(shared_ptr<Puzzle> &puzzle){
   shared_ptr<Sudoku> sudokuPuzzle = dynamic_pointer_cast<Sudoku>(puzzle);
   default_random_engine probabilityGenerator;
@@ -15,7 +30,6 @@ shared_ptr<Puzzle> SudokuOffspring::makeOffspring(shared_ptr<Puzzle> &puzzle){
   uniform_int_distribution<int> probabilityUniform(1,100);
   uniform_int_distribution<int> valueUniform(1,9);
   int newVal = 0;
-  //shared_ptr<Sudoku> sudoku = make_shared<Sudoku>();
   for(int i = 0; i <9; i++){
     for(int j=0; j<9; j++){
       int value = sudokuPuzzle->getValue(i+1,j+1);
@@ -26,9 +40,7 @@ shared_ptr<Puzzle> SudokuOffspring::makeOffspring(shared_ptr<Puzzle> &puzzle){
       if(value == 0 || (newProbability < probability_ && availability == true)){
         newVal = valueUniform(valueGenerator);
       }
-//      if(availability){
         sudokuPuzzle->setValue(i+1, j+1, newVal, availability);
-//      }
     }
   }
   return sudokuPuzzle;
