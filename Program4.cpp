@@ -26,57 +26,57 @@ int main(/*int argc, char * const argv[]*/)
    int generations = 0;
    popultaion = atoi(argv[1]);
    generations = atoi(argv[2]);*/
-  //  cout << b.getValue() <<endl;
-  //  cout << b.getAvalability() << endl;
+   //  cout << b.getValue() <<endl;
+   //  cout << b.getAvalability() << endl;
 
-  //  Sudoku sudoku;
-  //  vector<Element> vec;
-  //  vec.push_back(a);
-  //  vec.push_back(b);
-  //  vec[1].setValue(5);
-  //  for(int i =0; i<vec.size(); i++)
-  //  {
-  //    cout << vec[i].getValue() << endl;
-  //    cout << vec[i].getAvalability() << endl;
-  //  }
+   //  Sudoku sudoku;
+   //  vector<Element> vec;
+   //  vec.push_back(a);
+   //  vec.push_back(b);
+   //  vec[1].setValue(5);
+   //  for(int i =0; i<vec.size(); i++)
+   //  {
+   //    cout << vec[i].getValue() << endl;
+   //    cout << vec[i].getAvalability() << endl;
+   //  }
 
-  //  cout << b.getValue() <<endl;
-  //  cout << b.getAvalability() << endl;
+   //  cout << b.getValue() <<endl;
+   //  cout << b.getAvalability() << endl;
 
-  //  Sudoku sudoku;
-  //  vector<Element> vec;
-  //  vec.push_back(a);
-  //  vec.push_back(b);
-  //  vec[1].setValue(5);
-  //  for(int i =0; i<vec.size(); i++)
-  //  {
-  //    cout << vec[i].getValue() << endl;
-  //    cout << vec[i].getAvalability() << endl;
-  //  }
+   //  Sudoku sudoku;
+   //  vector<Element> vec;
+   //  vec.push_back(a);
+   //  vec.push_back(b);
+   //  vec[1].setValue(5);
+   //  for(int i =0; i<vec.size(); i++)
+   //  {
+   //    cout << vec[i].getValue() << endl;
+   //    cout << vec[i].getAvalability() << endl;
+   //  }
 
-   
-  //  Puzzle a;
-   int pop = 1;
-   int maxGen = 1;
-   string initialSudokuPuzzle;
+
+   //  Puzzle a;
+   int pop = 30;
+   int maxGen = 4000;
+ //  string initialSudokuPuzzle;
    cout << "Please Insert 81 characters for the initial puzzle. " << endl;
    cout << "Insert Here: ";
    //cin >> initialSudokuPuzzle;
    shared_ptr<Puzzle> p = make_shared<Sudoku>();
-  
+
    //cout << initialSudokuPuzzle;
    cin >> *p;
-  //udoku >> initialSudokuPuzzle;
+   //udoku >> initialSudokuPuzzle;
    cout << "Initial puzzle is: " << endl;
    cout << *p << endl;
 
-  //  shared_ptr<Fitness> f = make_shared<SudokuFitness>();
-  //  cout << f->howFit(p) << endl;
-  GeneticAlgorithm ga(pop,maxGen,p);
+   //  shared_ptr<Fitness> f = make_shared<SudokuFitness>();
+   //  cout << f->howFit(p) << endl;
+   GeneticAlgorithm ga(pop, maxGen, p);
 
-  Separate best = ga.run();
-  cout << "Best fit puzzle is: " << endl;
-  cout << *best.second <<endl;
-  cout << "Best Fit of best puzzle is: " << best.first << endl;
+   Separate best = ga.run();
+   cout << "Best fit puzzle is: " << endl;
+   cout << *best.second << endl;
+   cout << "Best Fit of best puzzle is: " << best.first << endl;
    return 0;
 }
