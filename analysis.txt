@@ -1,0 +1,83 @@
+Test case 1:
+423751968759683024160249357945362871872915036316478295537194602691827543284536019
+
+run: 20 populations and 5 generations 
+Best fit: 9
+
+run: 20 populations and 10 generations
+Best fit: 6
+
+run: 20 populations and 20 generations
+Best fit: 3
+
+run: 20 populations and 40 generations
+Best fit: 0
+
+So after running all 4 runs we can say that the more generations you input, the better best fit puzzle you will get at the end.
+
+Test case 2: Added more zeroes to the solved puzzle.
+423051068750683024160249357945062071072015036316478295537194602691827543284536019
+
+run: 40 populations and 5 generations
+Best fit: 13
+
+run: 40 populations and 10 generations
+Best fit: 8
+
+run: 40 populations and 20 generations
+Best fit: 3
+
+run: 40 populations and 40 generations
+Best fit: 0
+
+So it seems that adding just a few more zeroes does not change the outcome by much.
+
+Test case 3: Added more zeroes to the solved puzzle.
+423051068750683024160240300945062071072005036306478295537194602691827543284536019
+
+run: 100 populations and 5 generations
+Best fit: 22
+
+run: 100 populations and 10 generations
+Best fit: 18
+
+run: 100 populations and 20 generations
+
+Best fit: 11
+
+run: 100 populations and 40 generations
+
+Best fit: 3
+
+run: 100 populations and 50 generations
+
+Best fit: 0
+
+It seems that as we are adding more zeroes, the more generations we have to go through in order to find the best fit puzzle.
+
+Test case 4: Added even more zeroes
+423051060750600024160240300945062071072005036306478290007104602691827543284536019
+
+run: 1000 populations and 10 generations
+Best fit: 24
+
+run: 1000 populations and 20 generations
+Best fit: 18
+
+run: 1000 populations and 40 generations
+Best fit: 11
+
+run: 1000 populations and 80 generations
+Best fit: 6
+
+run: 1000 populations and 200 generations
+Best fit: 2
+
+run: 1000 populations and 500 generations
+Best fit: 2
+
+run: 1000 populations and 1000 populations
+Best fit: 0
+
+It seems like if the initial puzzle has more and more zeroes it's much harder for the algorithm to solve it, 
+and it requires more and more generations and populations to be able to solve it.
