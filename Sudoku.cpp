@@ -25,11 +25,7 @@ Sudoku::~Sudoku(){
 * Return: No returns
 */
 void Sudoku::setValue(int r, int c, int val, bool availability) {
-    
-  if(availability == true){
     sudokuGrid_[(r-1)*9+c-1] = Element(val,availability);
-  } 
-
 }
 /*
 * Description: gets the sudoku puzzle from the cin and adds it to sudokuGrid_.
@@ -59,27 +55,28 @@ istream &Sudoku::readin(istream &in) {
     return in;
 }
 
+
 /*
 * Description: prints the puzzle in the right format 
 * Return: the sudoku puzzle ostream      
 */
-ostream &Sudoku::printout(ostream &out) const {
+ostream& Sudoku::printout(ostream& out) const {
 
-    // header and footer string    
-    const string hdr_ftr = "+-------+-------+-------+\n";
-    out << hdr_ftr;
-    for (int i=0; i<9; ++i) {
-        // border
-        out << "|";
-        for (int j=0; j<9; ++j) {
-            out << " " << sudokuGrid_[i*9+j].getValue();
-            // inner border
-            if (j % 3 == 2) out << " |";
-        }
-        out << endl;
-        if (i % 3 == 2) out << hdr_ftr;
-    }
-    return out;
+   // header and footer string    
+   const string hdr_ftr = "+-------+-------+-------+\n";
+   out << hdr_ftr;
+   for (int i = 0; i < 9; ++i) {
+      // border
+      out << "|";
+      for (int j = 0; j < 9; ++j) {
+         out << " " << sudokuGrid_[i * 9 + j].getValue();
+         // inner border
+         if (j % 3 == 2) out << " |";
+      }
+      out << endl;
+      if (i % 3 == 2) out << hdr_ftr;
+   }
+   return out;
 }
 
 /*
@@ -87,15 +84,14 @@ ostream &Sudoku::printout(ostream &out) const {
 * Description: Gets the sudoku availability based on row and column
 * Return: returns the sudoku availability type bool
 */
-bool Sudoku::getChangeAvailability(int row, int column){
-  return sudokuGrid_[(row-1)*9+column-1].getAvalability();
+bool Sudoku::getChangeAvailability(int row, int column) {
+   return sudokuGrid_[(row - 1) * 9 + column - 1].getAvalability();
 }
-
 /*
 * Parameters: The row and the column of sudoku
 * Description: Gets the sudoku value based on row and column
 * Return: returns the sudoku value type int
 */
-int Sudoku::getValue(int row, int column){
-  return sudokuGrid_[(row-1)*9+column-1].getValue();
+int Sudoku::getValue(int row, int column) {
+   return sudokuGrid_[(row - 1) * 9 + column - 1].getValue();
 }

@@ -59,9 +59,10 @@ int main(/*int argc, char * const argv[]*/)
    popultaion = atoi(argv[1]);
    generations = atoi(argv[2]);*/
 
-   int pop = 1;
-   int maxGen = 1;
-   string initialSudokuPuzzle;
+
+   //  Puzzle a;
+   int pop = 30;
+   int maxGen = 100;
    cout << "Please Insert 81 characters for the initial puzzle. " << endl;
    cout << "Insert Here: ";
    shared_ptr<Puzzle> p = make_shared<Sudoku>();
@@ -72,9 +73,9 @@ int main(/*int argc, char * const argv[]*/)
 
   GeneticAlgorithm ga(pop,maxGen,p);
 
-  Separate best = ga.run();
-  cout << "Best fit puzzle is: " << endl;
-  cout << *best.second <<endl;
-  cout << "Best Fit of best puzzle is: " << best.first << endl;
+   Separate best = ga.run();
+   cout << "Best fit puzzle is: " << endl;
+   cout << *best.second << endl;
+   cout << "Best Fit of best puzzle is: " << best.first << endl;
    return 0;
 }
