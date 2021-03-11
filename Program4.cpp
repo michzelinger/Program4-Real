@@ -45,37 +45,32 @@
 
 using namespace std;
 
-int main(/*int argc, char * const argv[]*/)
+int main(int argc, char * const argv[])
 {
-   /*
-   if(argc != 3)
-   {
-      cerr << "Not enough arguments passed in. It is expected that 3
-      arguments (including execution file) will be passed in." << endl;
-      return 0;
-   }
-   int population = 0;
-   int generations = 0;
-   popultaion = atoi(argv[1]);
-   generations = atoi(argv[2]);*/
+   
+  if(argc != 3)
+  {
+     cerr << "Not enough arguments passed in. It is expected that 3 arguments (including execution file) will be passed in." << endl;
+     return 0;
+  }
+  int population = 0;
+  int generations = 0;
+  population = atoi(argv[1]);
+  generations = atoi(argv[2]);
 
+  cout << "Please Insert 81 characters for the initial puzzle. " << endl;
+  cout << "Insert Here: ";
+  shared_ptr<Puzzle> p = make_shared<Sudoku>();
 
-   //  Puzzle a;
-   int pop = 30;
-   int maxGen = 100;
-   cout << "Please Insert 81 characters for the initial puzzle. " << endl;
-   cout << "Insert Here: ";
-   shared_ptr<Puzzle> p = make_shared<Sudoku>();
+  cin >> *p;
+  cout << "Initial puzzle is: " << endl;
+  cout << *p << endl;
 
-   cin >> *p;
-   cout << "Initial puzzle is: " << endl;
-   cout << *p << endl;
+  GeneticAlgorithm ga(population,generations,p);
 
-  GeneticAlgorithm ga(pop,maxGen,p);
-
-   Separate best = ga.run();
-   cout << "Best fit puzzle is: " << endl;
-   cout << *best.second << endl;
-   cout << "Best Fit of best puzzle is: " << best.first << endl;
-   return 0;
+  Separate best = ga.run();
+  cout << "Best fit puzzle is: " << endl;
+  cout << *best.second << endl;
+  cout << "Best Fit of best puzzle is: " << best.first << endl;
+  return 0;
 }
