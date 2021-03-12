@@ -13,6 +13,7 @@
 using namespace std;
 
 // Sudoku Factory constructor
+// sets reporduction variable to a make_shared ptr of SudokuOffspring.
 SudokuFactory::SudokuFactory() {
     reproduction_ = make_shared<SudokuOffspring>();
 }
