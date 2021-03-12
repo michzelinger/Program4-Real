@@ -23,6 +23,11 @@ int SudokuFitness::howFit(shared_ptr<Puzzle> &puzzle_){
   // holds all the conflicts  
   int conflicts_ = 0;
   int valueToCheck = 0;
+
+  //We are using a set when counting the number of conflicts in a puzzle
+  //because sets cannot have duplicates in them. Therefore, after we are done
+  //adding number to the set, we will take the sets size minus 9 and get how many
+  //conflicts are in the row/column/or 3x3.
   set<int> valuesHolder;
    
   //checks rows for conflicts
