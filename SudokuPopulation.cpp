@@ -16,6 +16,11 @@
 using namespace std;
 
 //constructor
+//The constructor sets the population size to the one passed in
+//and also sets te fitness to a make_shared ptr of sudoku fitness,
+//and factory to a make_shared ptr of sudokufitness.
+//The constructor then creates a Puzzle for the number of population
+//size passed in and pushes it to the vector of puzzles.
 SudokuPopulation::SudokuPopulation(int populationSize, shared_ptr<Puzzle> &puzzle){
   populationSize_ = populationSize;
   fitness_ = make_shared<SudokuFitness>();
@@ -42,7 +47,10 @@ void SudokuPopulation::cull(double percent){
 }
 
 /*
-* Description: adds a new generation of puzzles to the population
+* Description: adds a new generation of puzzles to the population.
+  This method takes the current population of puzzles after being culled
+  and generates new puzzles until the population size is the same as the 
+  one originally passed in.
 * Return: No returns
 */
 void SudokuPopulation::newGeneration(){
