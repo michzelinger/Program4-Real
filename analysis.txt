@@ -1,3 +1,10 @@
+Can you reliably get good solutions? How many generations does it take? How does this depend on how hard the puzzle is? Does adding additional genetic operators improve performance?
+
+We can get reliably good solutions depending on how hard the puzzle is. If the puzzle only has just a few missing parts, it will take a very little number of generations to solve, and as the number of missing parts grows, so does the number of generations, and possibly populations. But the solutions we got for the test cases above show that the 
+algorithm is indeed reliable, and works for even some hard cases, but if tested with a very hard puzzle, we would most likely need a very large number of generations and 
+population size to solve, which might exceed the run time limit. We believe that adding additional genetic operators could improve the performance, and may even help solve
+the harder puzzles.
+
 Test case 1:
 423751968759683024160249357945362871872915036316478295537194602691827543284536019
 
@@ -79,5 +86,3 @@ Best fit: 2
 run: 1000 populations and 1000 populations
 Best fit: 0
 
-It seems like if the initial puzzle has more and more zeroes it's much harder for the algorithm to solve it, 
-and it requires more and more generations and populations to be able to solve it.
