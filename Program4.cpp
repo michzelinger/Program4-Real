@@ -47,16 +47,14 @@ using namespace std;
 
 int main(int argc, char * const argv[])
 {
-   
+  //Checks if exactly 3 arguments (including a.out/programName.exe) were passed in by the user, and if not prints an error message.
   if(argc != 3)
   {
      cerr << "Not enough arguments passed in. It is expected that 3 arguments (including execution file) will be passed in." << endl;
      return 0;
   }
-  int population = 0;
-  int generations = 0;
-  population = atoi(argv[1]);
-  generations = atoi(argv[2]);
+  int population = atoi(argv[1]);
+  int generations = atoi(argv[2]);
 
   cout << "Please Insert 81 characters for the initial puzzle. " << endl;
   cout << "Insert Here: ";

@@ -50,9 +50,13 @@ GeneticAlgorithm::GeneticAlgorithm(int populationSize, int maxGeneration, shared
 * Return: The puzzle with the lowest fitness score
 */
 Separate GeneticAlgorithm::run() {
-   Separate best{ 10000, nullptr };
+
+   Separate best{ 10000, nullptr }; //Separate object that holds the current best Fitness puzzle
+
+   //For loop that generates new generations for the max generations passed by user.
    for (int i = 0; i < maxGeneration_; i++) {
-      Separate current = population_->bestIndividual();
+
+      Separate current = population_->bestIndividual(); //Separate object that will change and hold the current best Fitness Puzzle.
 
       if (current.first == 0) {
          best = current;
@@ -63,11 +67,13 @@ Separate GeneticAlgorithm::run() {
          best = current;
       }
 
-      population_->cull(0.9);
-      population_->newGeneration();
+      population_->cull(0.9); //Calls cull method to delete the worst 90% of the puzzles in the population.
+      population_->newGeneration(); //Generate a new generation of puzzles.
+
+      //This is the case where we get to the last generation.
       if (i == maxGeneration_ - 1)
       {
-         Separate current = population_->bestIndividual();
+         current = population_->bestIndividual();
 
          if (current.first == 0) {
             best = current;
